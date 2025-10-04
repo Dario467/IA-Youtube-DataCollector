@@ -103,7 +103,6 @@ def most_view_videos(channel_name: str) -> (str, list[dict]):
     search_channel = channel_searcher(channel_name)
     if not search_channel:
         return {}
-    # channel_id = search_channel["items"][0]["id"]  # obtaining only the channelId
     upload_playlist_id = search_channel["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
     channel_subs = search_channel["items"][0]["statistics"]["subscriberCount"]
     # Calculate the min views for video
@@ -139,7 +138,6 @@ def videos_info(videos: (str, list[dict]), video_info: list[list]):  # -> list[l
             category,
             f"https://www.youtube.com/watch?v={video['id']}"
         ]
-        # sheets.append(row)
         video_info.append(row)
         count += 1
     # Returning a bidimensional list with the lists made
